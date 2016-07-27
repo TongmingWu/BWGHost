@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:toolbar="http://schemas.android.com/apk/res-auto"
+    android:padding="10dp"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+   <!-- <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimary"
+        android:fitsSystemWindows="true"
+        app:navigationIcon="@drawable/ic_keyboard_backspace_white_18dp"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+        toolbar:title="配置"
+        toolbar:titleTextAppearance="?android:attr/textAppearanceMedium"
+        toolbar:titleTextColor="@android:color/white" />-->
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/til_veid"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/toolbar">
+
+        <EditText
+            android:id="@+id/et_veid"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="请输入veid" />
+    </android.support.design.widget.TextInputLayout>
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/til_key"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/til_veid"
+        android:layout_marginTop="10dp">
+
+        <EditText
+            android:id="@+id/et_key"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="请输入app_key" />
+    </android.support.design.widget.TextInputLayout>
+
+    <!--<Button
+        android:id="@+id/btn_config"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/til_key"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:text="配置完成" />-->
+
+</RelativeLayout>

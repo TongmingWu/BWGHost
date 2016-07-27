@@ -1,0 +1,291 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:id="@+id/rl_content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/toolbar"
+        android:layout_margin="5dp"
+        android:visibility="invisible"
+        android:background="@drawable/contentbg"
+        android:padding="10dp">
+
+        <TextView
+            android:id="@+id/tv_host_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="3dp"
+            android:background="@drawable/barbg"
+            android:gravity="center_horizontal"
+            android:textColor="@android:color/black"
+            android:textSize="16sp"
+            tools:text="主机名" />
+
+        <TextView
+            android:id="@+id/tv_location"
+            style="@style/leftText"
+            android:layout_alignBottom="@+id/location"
+            android:layout_below="@id/tv_host_name"
+            android:text="Physical Location:" />
+
+        <TextView
+            android:id="@+id/location"
+            style="@style/rightText"
+            android:layout_marginLeft="40dp"
+            android:layout_marginTop="45dp"
+            android:layout_toRightOf="@id/tv_location"
+            tools:text="US" />
+
+        <TextView
+            android:id="@+id/tv_ip"
+            style="@style/leftText"
+            android:layout_below="@id/tv_location"
+            android:text="IP address:" />
+
+        <TextView
+            android:id="@+id/ip"
+            style="@style/rightText"
+            android:layout_alignBottom="@id/tv_ip"
+            android:layout_alignLeft="@id/location"
+            tools:text="0.0.0.0" />
+
+        <TextView
+            android:id="@+id/tv_port"
+            style="@style/leftText"
+            android:layout_below="@id/tv_ip"
+            android:text="SSH port:" />
+
+        <TextView
+            android:id="@+id/port"
+            style="@style/rightText"
+            android:layout_alignBottom="@id/tv_port"
+            android:layout_alignLeft="@id/location"
+            tools:text="0000" />
+
+        <TextView
+            android:id="@+id/tv_status"
+            style="@style/leftText"
+            android:layout_below="@id/tv_port"
+            android:text="Status:" />
+
+        <TextView
+            android:id="@+id/status"
+            style="@style/rightText"
+            android:layout_alignLeft="@id/location"
+            android:layout_below="@id/port"
+            android:layout_marginTop="10dp"
+            tools:text="Running" />
+
+        <TextView
+            android:id="@+id/tv_actions"
+            style="@style/leftText"
+            android:layout_below="@id/tv_status"
+            android:layout_marginTop="30dp"
+            android:text="Actions:" />
+
+        <Button
+            android:id="@+id/btn_start"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:layout_alignLeft="@id/location"
+            android:layout_below="@id/status"
+            android:layout_marginTop="10dp"
+            android:layout_toRightOf="@id/tv_actions"
+            android:background="@drawable/btn"
+            android:text="start" />
+
+        <Button
+            android:id="@+id/btn_reboot"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:layout_alignBottom="@id/btn_start"
+            android:layout_marginLeft="5dp"
+            android:layout_toRightOf="@id/btn_start"
+            android:background="@drawable/btn"
+            android:text="reboot" />
+
+        <Button
+            android:id="@+id/btn_stop"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:layout_alignLeft="@id/btn_start"
+            android:layout_below="@id/btn_start"
+            android:layout_marginTop="5dp"
+            android:background="@drawable/btn"
+            android:text="stop" />
+
+        <Button
+            android:id="@+id/btn_kill"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:layout_alignBottom="@id/btn_stop"
+            android:layout_marginLeft="5dp"
+            android:layout_toRightOf="@id/btn_stop"
+            android:background="@drawable/btn"
+            android:text="kill" />
+
+        <TextView
+            android:id="@+id/tv_ram"
+            style="@style/leftText"
+            android:layout_below="@id/tv_actions"
+            android:layout_marginTop="45dp"
+            android:text="RAM:" />
+
+        <ProgressBar
+            android:id="@+id/pb_ram"
+            style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+            android:layout_width="150dp"
+            android:layout_height="10dp"
+            android:layout_alignLeft="@id/btn_stop"
+            android:layout_below="@id/btn_stop"
+            android:layout_marginTop="10dp"
+            android:layout_toRightOf="@id/tv_ram"
+            android:progressDrawable="@drawable/progressbar" />
+
+        <TextView
+            android:id="@+id/ram"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@id/pb_ram"
+            android:layout_below="@id/pb_ram"
+            android:layout_marginTop="5dp"
+            tools:text="0/0 MB" />
+
+        <TextView
+            android:id="@+id/tv_swap"
+            style="@style/leftText"
+            android:layout_below="@id/tv_ram"
+            android:layout_marginTop="30dp"
+            android:text="SWAP:" />
+
+        <ProgressBar
+            android:id="@+id/pb_swap"
+            style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+            android:layout_width="150dp"
+            android:layout_height="10dp"
+            android:layout_alignLeft="@id/btn_stop"
+            android:layout_below="@id/ram"
+            android:layout_marginTop="15dp"
+            android:layout_toRightOf="@id/tv_swap"
+            android:progressDrawable="@drawable/progressbar" />
+
+        <TextView
+            android:id="@+id/swap"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@id/pb_ram"
+            android:layout_below="@id/pb_swap"
+            android:layout_marginTop="5dp"
+            tools:text="0/0 MB" />
+
+        <TextView
+            android:id="@+id/tv_disk"
+            style="@style/leftText"
+            android:layout_below="@id/tv_swap"
+            android:layout_marginTop="24dp"
+            android:text="Disk usage (/):" />
+
+        <ProgressBar
+            android:id="@+id/pb_disk"
+            style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+            android:layout_width="150dp"
+            android:layout_height="10dp"
+            android:layout_alignLeft="@id/btn_stop"
+            android:layout_below="@id/swap"
+            android:layout_marginTop="15dp"
+            android:layout_toRightOf="@id/tv_disk"
+            android:progressDrawable="@drawable/progressbar" />
+
+        <TextView
+            android:id="@+id/disk"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@id/pb_ram"
+            android:layout_below="@id/pb_disk"
+            android:layout_marginTop="5dp"
+            tools:text="0/0 MB" />
+
+        <TextView
+            android:id="@+id/tv_delivery"
+            style="@style/leftText"
+            android:layout_below="@id/tv_disk"
+            android:layout_marginTop="30dp"
+            android:text="Bandwidth usage:" />
+
+        <TextView
+            android:id="@+id/tv_reset"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@id/tv_delivery"
+            android:layout_below="@id/tv_delivery"
+            tools:text="Resets" />
+
+        <ProgressBar
+            android:id="@+id/pb_delivery"
+            style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+            android:layout_width="150dp"
+            android:layout_height="10dp"
+            android:layout_alignLeft="@id/btn_stop"
+            android:layout_below="@id/disk"
+            android:layout_marginTop="15dp"
+            android:layout_toRightOf="@id/tv_disk"
+            android:progressDrawable="@drawable/progressbar" />
+
+        <TextView
+            android:id="@+id/delivery"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@id/pb_ram"
+            android:layout_below="@id/pb_delivery"
+            android:layout_marginTop="5dp"
+            tools:text="0/0 GB" />
+
+        <TextView
+            android:id="@+id/tv_system"
+            style="@style/leftText"
+            android:layout_below="@id/tv_reset"
+            android:text="Operation System:" />
+
+        <TextView
+            android:id="@+id/system"
+            style="@style/rightText"
+            android:layout_alignBottom="@id/tv_system"
+            android:layout_alignLeft="@id/delivery"
+            tools:text="CentOS 7 x86_64" />
+
+        <TextView
+            android:id="@+id/tv_host"
+            style="@style/leftText"
+            android:layout_below="@id/tv_system"
+            android:text="Hostname:" />
+
+        <TextView
+            android:id="@+id/host"
+            style="@style/rightText"
+            android:layout_alignBottom="@id/tv_host"
+            android:layout_alignLeft="@id/system"
+            tools:text="tongming.local" />
+
+        <TextView
+            android:id="@+id/tv_change"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@id/host"
+            android:layout_marginLeft="3dp"
+            android:layout_toRightOf="@id/host"
+            android:text="change"
+            android:textColor="@android:color/holo_blue_light" />
+    </RelativeLayout>
+
+    <ImageView
+        android:id="@+id/btn_refresh"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="5dp"
+        android:background="@drawable/refresh" />
+</RelativeLayout>

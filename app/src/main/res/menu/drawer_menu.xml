@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/menu_index"
+            android:checked="true"
+            android:icon="@drawable/ic_home_grey_500_18dp"
+            android:title="Index" />
+        <item
+            android:id="@+id/menu_snapshot"
+            android:icon="@drawable/ic_computer_grey_500_18dp"
+            android:title="Snapshot" />
+        <item
+            android:id="@+id/menu_migration"
+            android:icon="@drawable/ic_place_grey_500_18dp"
+            android:title="Migration" />
+        <item
+            android:id="@+id/menu_reinstall"
+            android:icon="@drawable/ic_sync_grey_500_18dp"
+            android:title="Reinstall" />
+        <item
+            android:id="@+id/menu_shell"
+            android:icon="@drawable/ic_adb_grey_500_18dp"
+            android:title="Shell" />
+    </group>
+</menu>
