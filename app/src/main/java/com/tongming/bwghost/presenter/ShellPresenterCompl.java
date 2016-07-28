@@ -19,6 +19,7 @@ import okhttp3.Call;
 public class ShellPresenterCompl {
     private IShellView shellView;
     private Handler mHandler;
+    private int CD_ERROR = 722103;
 
     public ShellPresenterCompl(IShellView shellView) {
         this.shellView = shellView;
@@ -56,6 +57,7 @@ public class ShellPresenterCompl {
     }
 
     public void cd(String veid, String key, String currentDir, String newDir) {
+        boolean isResponse;
         OkHttpUtils.get()
                 .url(Api.Manager.BASIC_SHELL.CD)
                 .addParams(Api.VEID, veid)
@@ -64,6 +66,7 @@ public class ShellPresenterCompl {
                 .addParams(Api.PARAMS.NEW_DIR, newDir)
                 .build()
                 .execute(new StringCallback() {
+
                     @Override
                     public void onError(Call call, Exception e, int id) {
 
@@ -79,6 +82,8 @@ public class ShellPresenterCompl {
                                     if (object.getInt("error") == 0) {
                                         //返回绝对路径
                                         shellView.onCd(object.getString("pwd"));
+                                    } else {
+                                        shellView.onFail(CD_ERROR, object.getString("message"));
                                     }
                                 } catch (JSONException e) {
                                     e.printStackTrace();

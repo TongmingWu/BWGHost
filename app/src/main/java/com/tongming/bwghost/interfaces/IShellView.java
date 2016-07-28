@@ -8,5 +8,5 @@ public interface IShellView {
 
     void onCd(String cd);
 
-    void onFail(int code);
+    void onFail(int code, String message);
 }
