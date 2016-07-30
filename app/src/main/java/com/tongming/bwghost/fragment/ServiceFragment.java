@@ -136,6 +136,7 @@ public class ServiceFragment extends BaseFragment implements IConfView, IActionV
                                                 veid = et_veid.getText().toString();
                                                 key = et_key.getText().toString();
                                                 doConfigure(veid, key);
+                                                refresh.startAnimation(animation);
                                             }
                                         }
                                     })
@@ -306,7 +307,11 @@ public class ServiceFragment extends BaseFragment implements IConfView, IActionV
 
     @Override
     public void onAction(int code) {
+        if (actionDialog != null && actionDialog.isShowing()) {
+            actionDialog.dismiss();
+        }
         if (code == 0) {
+            //操作成功刷新界面
             compl.getServiceInfo(veid, key);
         } else {
             Toast.makeText(getActivity(), "timeout", Toast.LENGTH_SHORT).show();
